@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fragrances | Fragrances</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --ink:#1E1633; --mist:#F2EFF7; --rose:#C2476B; }
+    body { font-family:'Manrope',sans-serif; background:var(--mist); color:var(--ink); }
+    .display { font-family:'Cormorant Garamond',serif; }
+    .btn { background:var(--ink); color:#fff; padding:.7rem 1.25rem; border-radius:999px; font-weight:700; transition:background .2s; }
+    .btn:hover { background:var(--rose); }
+    .btn-outline { border:1.5px solid var(--ink); padding:.55rem 1.1rem; border-radius:999px; font-weight:700; }
+    .chip[aria-pressed="true"] { background:var(--ink); color:#fff; }
+    :focus-visible { outline:3px solid var(--rose); outline-offset:2px; }
+    @media (prefers-reduced-motion: no-preference) { .hero-bottle { animation: float 6s ease-in-out infinite; } }
+    @keyframes float { 50% { transform: translateY(-12px); } }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-30 bg-[var(--mist)]/90 backdrop-blur border-b border-[#d9d3e6]">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+      <a href="#" class="display text-2xl font-bold">Fragrances</a>
+      <nav class="flex items-center gap-5 text-sm font-medium">
+        <a href="#collection" class="hover:text-[var(--rose)]">Collection</a>
+        <a href="#about" class="hover:text-[var(--rose)]">About</a>
+        <button id="open-cart" class="btn-outline">Cart (<span id="cart-count">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-5 py-14 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="display text-5xl md:text-7xl font-bold leading-[1.02]">A scent for every evening you remember.</h1>
+        <p class="mt-5 text-lg max-w-md">Four signature fragrances, each built from a few honest notes. Pick one, wear it, and let people ask.</p>
+        <a href="#collection" class="btn inline-block mt-8">Shop the collection</a>
+      </div>
+      <img src="/images/midnight-oud.svg" alt="Midnight Oud perfume bottle" class="hero-bottle w-full max-w-sm mx-auto rounded-3xl shadow-xl" />
+    </section>
+
+    <section id="collection" class="max-w-6xl mx-auto px-5 pb-16">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+        <h2 class="display text-4xl font-bold">The Collection</h2>
+        <input id="search" type="search" placeholder="Search by name or note" aria-label="Search fragrances"
+          class="rounded-full border border-[#cfc7e0] bg-white px-4 py-2 w-full sm:w-72" />
+      </div>
+      <div id="filters" class="flex flex-wrap gap-2 mb-8"></div>
+      <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-live="polite"></div>
+    </section>
+
+    <section id="about" class="bg-[var(--ink)] text-white">
+      <div class="max-w-3xl mx-auto px-5 py-16 text-center">
+        <h2 class="display text-4xl font-bold">Made in small batches</h2>
+        <p class="mt-4 text-lg opacity-90">Every bottle is 100 ml of eau de parfum. Orders ship across Pakistan and you pay cash on delivery.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-sm py-8 opacity-70">&copy; <span id="year"></span> Fragrances. All rights reserved.</footer>
+
+  <!-- Cart drawer -->
+  <aside id="cart" class="fixed inset-y-0 right-0 z-40 w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col" aria-label="Shopping cart">
+    <div class="flex items-center justify-between p-5 border-b">
+      <h2 class="display text-3xl font-bold">Your Cart</h2>
+      <button id="close-cart" class="btn-outline">Close</button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+    <div class="p-5 border-t">
+      <div class="flex justify-between font-bold text-lg mb-4"><span>Total</span><span id="cart-total">PKR 0</span></div>
+      <button id="checkout" class="btn w-full">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Checkout modal -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+    <form id="order-form" class="bg-white rounded-3xl p-6 w-full max-w-md space-y-3">
+      <h2 class="display text-3xl font-bold">Delivery details</h2>
+      <input name="name" required placeholder="Full name" class="w-full border rounded-xl px-4 py-2" />
+      <input name="phone" required placeholder="Phone number" class="w-full border rounded-xl px-4 py-2" />
+      <input name="city" required placeholder="City" class="w-full border rounded-xl px-4 py-2" />
+      <textarea name="address" required placeholder="Full address" rows="3" class="w-full border rounded-xl px-4 py-2"></textarea>
+      <p id="form-msg" class="text-sm min-h-5" role="status"></p>
+      <div class="flex gap-3">
+        <button type="submit" class="btn flex-1">Place order</button>
+        <button type="button" id="cancel-order" class="btn-outline">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

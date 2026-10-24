@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ORD-1792842491712",
+    "createdAt": "2026-10-24T11:48:11.712Z",
+    "customer": {
+      "name": "mahiba",
+      "phone": "03444398395",
+      "city": "lahore",
+      "address": "chungi amer sindhu\n"
+    },
+    "items": [
+      {
+        "id": "amber-noir",
+        "name": "Amber Noir",
+        "qty": 1,
+        "price": 9000
+      }
+    ],
+    "total": 9000
+  }
+]

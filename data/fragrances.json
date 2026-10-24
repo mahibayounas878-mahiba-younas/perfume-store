@@ -1,0 +1,14 @@
+[
+  { "id": "midnight-oud", "name": "Midnight Oud", "family": "Woody", "price": 8500, "size": "100 ml",
+    "notes": ["Oud", "Cedar", "Black pepper", "Leather"], "image": "/images/midnight-oud.svg",
+    "description": "Deep, smoky oud softened by cedar and a thread of pepper. Made for evenings." },
+  { "id": "rose-velours", "name": "Rose Velours", "family": "Floral", "price": 7200, "size": "100 ml",
+    "notes": ["Damask rose", "Peony", "Musk", "Vanilla"], "image": "/images/rose-velours.svg",
+    "description": "A velvet rose with a clean musk base. Romantic without being heavy." },
+  { "id": "citrus-mirage", "name": "Citrus Mirage", "family": "Fresh", "price": 6400, "size": "100 ml",
+    "notes": ["Bergamot", "Lemon", "Mint", "White tea"], "image": "/images/citrus-mirage.svg",
+    "description": "Bright citrus over cool mint. Light enough for a hot Lahore afternoon." },
+  { "id": "amber-noir", "name": "Amber Noir", "family": "Oriental", "price": 9000, "size": "100 ml",
+    "notes": ["Amber", "Saffron", "Sandalwood", "Tonka bean"], "image": "/images/amber-noir.svg",
+    "description": "Warm amber and saffron resting on creamy sandalwood. Long-lasting and rich." }
+]
